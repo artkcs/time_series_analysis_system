@@ -1,0 +1,8 @@
+---Python bibliotekos instaliuoti ("pip install <biblioteka>"):
+django
+datetime
+psycopg-binary==3.1.8
+psycopg==3.1.8
+paho-mqtt
+requests
+pathlib
