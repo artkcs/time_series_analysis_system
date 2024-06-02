@@ -85,12 +85,12 @@ WSGI_APPLICATION = 'informacine_sistema.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myinteg6',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myinteg',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'adminadmin',
         'PORT': '5432',
-        'HOST': 'localhost'
+        'HOST': 'myrdshost.rds.amazonaws.com'
     }
 }
 
