@@ -15,27 +15,31 @@ class ApiConfig(AppConfig):
         from .requests_scripts import fetch_csv_and_convert_to_json
         from .create_integration_table import insert_into_table
         from .utils import parse_message
+        from django.db.utils import ProgrammingError
         import api.signals  # Ensure the signals are registered and mqtt_clients dictionary is accessible
 
-        # Initialize MQTT clients for existing integrations
-        integrations_mqtt = Integration.objects.filter(type=2).all()
+        try:
+            # Initialize MQTT clients for existing integrations
+            integrations_mqtt = Integration.objects.filter(type=2).all()
 
-        for integration in integrations_mqtt:
-            print(f"Setting up integration: {integration.name}")
-            self.setup_integration(integration, fetch_csv_and_convert_to_json, insert_into_table, parse_message, api.signals)
+            for integration in integrations_mqtt:
+                print(f"Setting up integration: {integration.name}")
+                self.setup_integration(integration, fetch_csv_and_convert_to_json, insert_into_table, parse_message, api.signals)
 
-        print("MQTT setup complete")
-        
-        from .tasks import schedule_updates
-        def start_periodic_updates():
-            integrations_http = Integration.objects.filter(type=1).all()
-            while True:
-                schedule_updates(integrations_http)
-                time.sleep(1800)  # Sleep for 1 hour (3600 seconds) between checks
+            print("MQTT setup complete")
+            
+            from .tasks import schedule_updates
+            def start_periodic_updates():
+                integrations_http = Integration.objects.filter(type=1).all()
+                while True:
+                    schedule_updates(integrations_http)
+                    time.sleep(1800)  # Sleep for 1 hour (3600 seconds) between checks
 
-        update_thread = threading.Thread(target=start_periodic_updates)
-        update_thread.daemon = True
-        update_thread.start()
+            update_thread = threading.Thread(target=start_periodic_updates)
+            update_thread.daemon = True
+            update_thread.start()
+        except ProgrammingError as e:
+            print("MQTT initializing error: " + str(e))
 
     def setup_integration(self, integration, fetch_csv_and_convert_to_json, insert_into_table, parse_message, signals):
         lock = Lock()  # Define a lock specific to this integration

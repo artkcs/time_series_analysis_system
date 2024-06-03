@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'adminadmin',
         'PORT': '5432',
-        'HOST': 'myrdshost.rds.amazonaws.com'
+        'HOST': 'myinteg.cpawciyiouz8.us-east-1.rds.amazonaws.com'
     }
 }
 
@@ -135,3 +135,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_ACCESS_KEY_ID = 'AKIAYS2NT6ROF7BISWMZ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'informacinesistema'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'   
