@@ -1,5 +1,6 @@
 ---Python bibliotekos instaliuoti ("pip install <biblioteka>"):
 django
+gunicorn
 djangorestframework
 datetime
 psycopg-binary==3.1.19
@@ -8,3 +9,4 @@ psycopg==3.1.19
 paho-mqtt
 requests
 pathlib
+boto3
