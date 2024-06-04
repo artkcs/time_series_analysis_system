@@ -43,9 +43,9 @@ const HomePage = () => {
                 </nav>
         
                 <div class="navbar-mobile">
-                    <img src='frontend/static/images/mobile-menu-icon.svg' class="navbar-mobile__btn" id="navbar-mobile__btn" alt="Navbar" height="50" onClick={displayMobileNavbar} />
+                    <img src='/frontend/static/images/mobile-menu-icon.svg' class="navbar-mobile__btn" id="navbar-mobile__btn" alt="Navbar" height="50" onClick={displayMobileNavbar} />
                     <div class="navbar-mobile__content" id="navbar-mobile__content">
-                        <img src='frontend/static/images/mobile-close-icon.svg' alt="Close" class="nav-mobile-close" id="nav-mobile-close" height="50" onClick={hideMobileNavbar} />
+                        <img src='/frontend/static/images/mobile-close-icon.svg' alt="Close" class="nav-mobile-close" id="nav-mobile-close" height="50" onClick={hideMobileNavbar} />
                         <div class="nav-mobile-linklist" id="nav-mobile-linklist"></div>
                     </div>
                 </div>
