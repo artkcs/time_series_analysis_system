@@ -242,9 +242,31 @@ html, body {
     border-spacing: 6px;
     margin: auto;
 }
-.params-table__row:nth-child(even) {
+
+.table-of-values-container {
+    overflow-x: scroll;
+}
+
+#integration-data-table th,
+#integration-data-table td {
+    word-wrap: normal;
+    word-break: normal;
+}
+
+#integration-data-table th:first-child,
+#integration-data-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.params-table__row:nth-child(even) td {
     background-color: #eeeeee;
 }
+.params-table__row:nth-child(odd) td {
+    background-color: #ffffff;
+}
+
 .params-table__column--heading {
     font-weight: bold;
     background-color: #999999;
@@ -256,6 +278,9 @@ html, body {
     border-radius: 3px;
     box-shadow: 0 0 1px #888888;
     font-size: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .button {

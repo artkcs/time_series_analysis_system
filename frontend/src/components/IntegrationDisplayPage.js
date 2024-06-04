@@ -340,7 +340,6 @@ const IntegrationDisplayPage = () => {
                         <td class="params-table__column column__description">{mqttTopic}</td>
                     </tr>
                 </table>
-
             </div>
             <div class="filter-bar" id="filter-bar">
                     <button class="button" onClick={clearDates}>Valyti</button>
@@ -359,25 +358,27 @@ const IntegrationDisplayPage = () => {
                     <button class="button" onClick={exportJson}>Eksportuoti JSON</button>
                     <button class="button" onClick={exportCsv}>Eksportuoti CSV</button>
                 </div>
-                <table class="params-table" id="integration-data-table">
-                    <tr class="params-table__row">
-                            <th class="params-table__column params-table__column--heading column__params">Data</th>
-                        {fieldNames && fieldNames.map((fieldName) =>(
-                            <th class="params-table__column params-table__column--heading column__params">{fieldName}</th>
-                        ))}
-                    </tr>
-                    {values &&
-                        values.map(({ date, fields }) => (
-                            <tr class="params-table__row">
-                                <td class="params-table__column column__description">{date}</td>
-                                {fields && fields.map((field) => (
-                                    <td class="params-table__column column__description">{field}</td>
-                                )
-                            )}   
-                            </tr>
-                        )
-                    )}
-                </table>
+                <div class="table-of-values-container">
+                    <table class="params-table" id="integration-data-table">
+                        <tr class="params-table__row">
+                                <th class="params-table__column params-table__column--heading column__params">Data</th>
+                            {fieldNames && fieldNames.map((fieldName) =>(
+                                <th class="params-table__column params-table__column--heading column__params">{fieldName}</th>
+                            ))}
+                        </tr>
+                        {values &&
+                            values.map(({ date, fields }) => (
+                                <tr class="params-table__row">
+                                    <td class="params-table__column column__description">{date}</td>
+                                    {fields && fields.map((field) => (
+                                        <td class="params-table__column column__description">{field}</td>
+                                    )
+                                )}   
+                                </tr>
+                            )
+                        )}
+                    </table>
+                </div>
 
             </div>
             <div id="charts-tab" class="charts-tab">

@@ -1,6 +1,3 @@
-import checkImg from '../../static/images/check.svg';
-import errorImg from '../../static/images/error.svg';
-
 export const integrationSuccessfullyAddedMsg = () => {
     return commonSuccessMsg("Integracija sėkmingai pridėta!")
 }
@@ -19,7 +16,7 @@ const commonSuccessMsg = (msg) => {
     msgBlock.id         = "msg"
 
     var img     = document.createElement("img")
-    img.src     = {checkImg}
+    img.src     = '/frontend/static/images/check.svg'
     img.width   = "60"
     img.height  = "60"
     msgBlock.append(img)
@@ -37,7 +34,7 @@ export const commonErrorMsg = (msg) => {
     msgBlock.id         = "msg"
 
     var img     = document.createElement("img")
-    img.src     = {errorImg}
+    img.src     = '/frontend/static/images/error.svg'
     img.width   = "60"
     img.height  = "60"
     msgBlock.append(img)
